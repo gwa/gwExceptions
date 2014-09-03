@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Gwa\\": "src/Gwa/"
+            "Gwa\\Exception\\": "src/Gwa/Exception/"
         }
     }
 }
