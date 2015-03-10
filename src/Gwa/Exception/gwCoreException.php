@@ -100,22 +100,22 @@ class gwCoreException extends \Exception
     /**
      * @var gwCoreExceptionInfo
      */
-    protected $_info;
+    protected $info;
 
     /**
      * Constructor.
-     * @param string $message
+     * @param string              $message
      * @param gwCoreExceptionInfo $info
-     * @param int $code
-     * @param Exception $previous
+     * @param int                 $code
+     * @param Exception           $previous
      */
-    public function __construct($message, $info=null, $code=0)
+    public function __construct($message, $info = null, $code = 0)
     {
         if (!is_a($info, 'gwCoreExceptionInfo')) {
             $info = new gwCoreExceptionInfo($info);
         }
         $info->setException($this);
-        $this->_info = $info;
+        $this->info = $info;
         parent::__construct($message, $code);
     }
 
@@ -124,7 +124,7 @@ class gwCoreException extends \Exception
      */
     public function __toString()
     {
-        return __CLASS__ . " [$this->code]: $this->message | " . $this->_info->fetch();
+        return __CLASS__." [$this->code]: $this->message | ".$this->info->fetch();
     }
 
     /**
@@ -133,24 +133,22 @@ class gwCoreException extends \Exception
      */
     public function __set($key, $value)
     {
-        switch ($key)
-        {
+        switch ($key) {
             case 'info' :
-                $this->_info = $value;
+                $this->info = $value;
                 break;
         }
     }
 
     /**
-     * @param string $key
+     * @param  string              $key
      * @return gwCoreExceptionInfo
      */
     public function __get($key)
     {
-        switch ($key)
-        {
+        switch ($key) {
             case 'info' :
-                return $this->_info;
+                return $this->info;
         }
     }
 

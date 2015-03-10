@@ -10,36 +10,36 @@ class gwBoundsExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionI
     /**
      * @var mixed
      */
-    protected $_value;
+    protected $value;
 
     /**
      * @var array|string
      */
-    protected $_values;
+    protected $values;
 
     /**
      * @var bool
      */
-    protected $_valuesareillegal;
+    protected $valuesareillegal;
 
     /**
      * @var string
      */
-    protected $_note;
+    protected $note;
 
     /**
      * Constructor.
-     * @param mixed $value the actual value that caused the exception
-     * @param array|string $values a list of legal values (or illegal values if $valuesareillegal is true)
-     * @param bool $valuesareillegal $values array contains illegal values
-     * @param string $note an optional note
+     * @param mixed        $value            the actual value that caused the exception
+     * @param array|string $values           a list of legal values (or illegal values if $valuesareillegal is true)
+     * @param bool         $valuesareillegal $values array contains illegal values
+     * @param string       $note             an optional note
      */
-    public function __construct( $value, $values, $valuesareillegal=false, $note='' )
+    public function __construct($value, $values, $valuesareillegal = false, $note = '')
     {
-        $this->_value = $value;
-        $this->_values = $values;
-        $this->_valuesareillegal = $valuesareillegal;
-        $this->_note = $note;
+        $this->value = $value;
+        $this->values = $values;
+        $this->valuesareillegal = $valuesareillegal;
+        $this->note = $note;
     }
 
     /**
@@ -47,22 +47,25 @@ class gwBoundsExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionI
      */
     public function fetch()
     {
-        $value = $this->getAsString($this->_value);
-        $strvalues = array();
-        if (is_array($this->_values)) {
-            foreach ($this->_values as $v) {
+        $value = $this->getAsString($this->value);
+        $strvalues = [];
+        if (is_array($this->values)) {
+            foreach ($this->values as $v) {
                 $strvalues[] = $this->getAsString($v);
             }
         } else {
-            $strvalues[] = $this->getAsString($this->_values);
+            $strvalues[] = $this->getAsString($this->values);
         }
         $values = implode(', ', $strvalues);
-        if (!$this->_valuesareillegal) {
+        if (!$this->valuesareillegal) {
             $output = sprintf('%s MUST BE one of [%s]', $value, $values);
         } else {
             $output = sprintf('%s CANNOT BE one of [%s]', $value, $values);
         }
-        if ($this->_note) $output .= ' ('.$this->_note.')';
+        if ($this->note) {
+            $output .= ' ('.$this->note.')';
+        }
+
         return $output;
     }
 }

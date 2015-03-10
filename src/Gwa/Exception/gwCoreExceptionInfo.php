@@ -11,30 +11,30 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
     /**
      * @var gwCoreException
      */
-    protected $_exception;
+    protected $exception;
 
     /**
      * @var string
      */
-    protected $_info;
+    protected $info;
 
     /**
      * Constructor.
      * @param gwCoreException $info
-     * @param string $info
+     * @param string          $info
      */
-    public function __construct( $info=null )
+    public function __construct($info = null)
     {
-        $this->_info = $info === null ? '' : $info;
+        $this->info = $info === null ? '' : $info;
     }
 
     /**
      * Exception setter.
      * @param gwCoreException $exception
      */
-    final public function setException( gwCoreException $exception )
+    final public function setException(gwCoreException $exception)
     {
-        $this->_exception = $exception;
+        $this->exception = $exception;
     }
 
     /**
@@ -52,7 +52,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
      */
     public function fetch()
     {
-        return $this->_info;
+        return $this->info;
     }
 
     /**
@@ -68,16 +68,27 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
      * Returns a string representation of a value.
      * Used by subclasses.
      * @link http://www.php.net/manual/en/function.get-resource-type.php
-     * @param mixed $value
-     * @return  string
+     * @param  mixed  $value
+     * @return string
      */
-    public function getAsString( $value )
+    public function getAsString($value)
     {
-        if (is_string($value)) return $value;
-        if (is_bool($value)) return $value ? 'TRUE' : 'FALSE';
-        if (is_null($value)) return 'NULL';
-        if (is_resource($value)) return get_resource_type($value);
-        if (is_object($value)) return '{'.get_class($value).'}';
+        if (is_string($value)) {
+            return $value;
+        }
+        if (is_bool($value)) {
+            return $value ? 'TRUE' : 'FALSE';
+        }
+        if (is_null($value)) {
+            return 'NULL';
+        }
+        if (is_resource($value)) {
+            return get_resource_type($value);
+        }
+        if (is_object($value)) {
+            return '{'.get_class($value).'}';
+        }
+
         return (string) $value;
     }
 }

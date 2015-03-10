@@ -24,14 +24,14 @@ class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInf
 
     /**
      * Constructor.
-     * @param mixed $value the actual value that caused the exception
+     * @param mixed        $value the actual value that caused the exception
      * @param array|string $types a list of legal types
-     * @param string $note an optional note
+     * @param string       $note  an optional note
      */
-    public function __construct( $value, $types, $note='' )
+    public function __construct($value, $types, $note = '')
     {
         $this->_value = $value;
-        $this->_types = is_array($types) ? $types : array($types);
+        $this->_types = is_array($types) ? $types : [$types];
         $this->_note = $note;
     }
 
@@ -43,7 +43,10 @@ class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInf
         $value = $this->getAsString($this->_value);
         $values = implode(', ', $this->_types);
         $output = sprintf('%s MUST BE one of the following types [%s]', $value, $values);
-        if ($this->_note) $output .= ' ('.$this->_note.')';
+        if ($this->_note) {
+            $output .= ' ('.$this->_note.')';
+        }
+
         return $output;
     }
 }

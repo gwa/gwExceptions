@@ -9,9 +9,6 @@
         }
     ],
     "homepage": "https://github.com/gwa/gwExceptions",
-    "require": {
-
-    },
     "autoload": {
         "psr-4": {
             "Gwa\\Exception\\": "src/Gwa/Exception/"

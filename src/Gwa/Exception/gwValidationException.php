@@ -18,9 +18,9 @@ class gwValidationException extends gwCoreException
     const INVALID  = 'gwValidationException::invalid';
     const METHOD_DOES_NOT_EXIST = 'gwValidationException::method_does_not_exist';
 
-    public function __construct( $message='gwValidationException::invalid', $info=null, $code=0 )
+    public function __construct($message = 'gwValidationException::invalid', $info = null, $code = 0)
     {
-        $this->_errors = array();
+        $this->_errors = [];
         parent::__construct($message, $info, $code);
     }
 
@@ -37,24 +37,26 @@ class gwValidationException extends gwCoreException
      */
     public function getMessages()
     {
-        $ret = array();
+        $ret = [];
         foreach ($this->_errors as $v) {
             $ret[] = $v->message;
         }
+
         return $ret;
     }
 
     /**
      * @return array
      */
-    public function getMessagesForFieldname( $fieldname )
+    public function getMessagesForFieldname($fieldname)
     {
-        $ret = array();
+        $ret = [];
         foreach ($this->_errors as $v) {
             if ($v->field == $fieldname) {
                 $ret[] = $v->message;
             }
         }
+
         return $ret;
     }
 
@@ -63,9 +65,9 @@ class gwValidationException extends gwCoreException
      * @param string $fieldname
      * @param string $message
      */
-    public function appendError( $fieldname, $message )
+    public function appendError($fieldname, $message)
     {
-        $obj = new \stdClass;
+        $obj = new \stdClass();
         $obj->field = $fieldname;
         $obj->message = $message;
         $this->_errors[] = $obj;
