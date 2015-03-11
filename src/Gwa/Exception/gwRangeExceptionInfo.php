@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -29,12 +30,13 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
 
     /**
      * Constructor.
-     * @param int $value the actual value that caused the exception
-     * @param int $minimum the minimum legal value
-     * @param int $maximum the maximum legal value
-     * @param string $note an optional note
+     *
+     * @param int    $value   the actual value that caused the exception
+     * @param int    $minimum the minimum legal value
+     * @param int    $maximum the maximum legal value
+     * @param string $note    an optional note
      */
-    public function __construct( $value, $minimum, $maximum, $note='' )
+    public function __construct($value, $minimum, $maximum, $note = '')
     {
         $this->_value = $value;
         $this->_minimum = $minimum;
@@ -56,6 +58,7 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
         if ($this->_note) {
             $output .= ' ('.$this->_note.')';
         }
+
         return $output;
     }
 
@@ -64,7 +67,7 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
      */
     public function getMaximum()
     {
-    	return $this->_maximum;
+        return $this->_maximum;
     }
 
     /**
@@ -72,6 +75,6 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
      */
     public function getMinimum()
     {
-    	return $this->_minimum;
+        return $this->_minimum;
     }
 }
