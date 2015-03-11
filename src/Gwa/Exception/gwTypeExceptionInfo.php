@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -24,6 +25,7 @@ class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInf
 
     /**
      * Constructor.
+     *
      * @param mixed        $value the actual value that caused the exception
      * @param array|string $types a list of legal types
      * @param string       $note  an optional note

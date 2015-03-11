@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -15,6 +16,7 @@ class gwAuthException extends gwCoreException
 
     /**
      * @var string
+     *
      * @deprecated
      * @see ERR_INVALID_CREDENTIALS
      */
@@ -22,12 +24,14 @@ class gwAuthException extends gwCoreException
 
     /**
      * To be thrown when a login attempt fails.
+     *
      * @var string
      */
     const ERR_INVALID_CREDENTIALS = 'gwAuthException::invalid_credentials';
 
     /**
      * @var string
+     *
      * @deprecated
      * @see ERR_AUTHENTICATION_REQUIRED
      */
@@ -35,18 +39,21 @@ class gwAuthException extends gwCoreException
 
     /**
      * To be thrown when an action requires authentication.
+     *
      * @var string
      */
     const ERR_AUTHENTICATION_REQUIRED = 'gwAuthException::authentication_required';
 
     /**
      * To be thrown when a valid authentication has expired.
+     *
      * @var string
      */
     const ERR_AUTHENTICATION_EXPIRED = 'gwAuthException::authentication_expired';
 
     /**
      * To be thrown when authentication is attempted when already authenicated.
+     *
      * @var string
      */
     const ERR_ALREADY_AUTHENTICATED = 'gwAuthException::already_authenticated';

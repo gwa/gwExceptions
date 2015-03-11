@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -29,6 +30,7 @@ class gwBoundsExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionI
 
     /**
      * Constructor.
+     *
      * @param mixed        $value            the actual value that caused the exception
      * @param array|string $values           a list of legal values (or illegal values if $valuesareillegal is true)
      * @param bool         $valuesareillegal $values array contains illegal values

@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -20,6 +21,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
 
     /**
      * Constructor.
+     *
      * @param gwCoreException $info
      * @param string          $info
      */
@@ -30,6 +32,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
 
     /**
      * Exception setter.
+     *
      * @param gwCoreException $exception
      */
     final public function setException(gwCoreException $exception)
@@ -39,6 +42,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
 
     /**
      * Returns a string representation of this object.
+     *
      * @return string
      */
     public function __toString()
@@ -48,6 +52,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
 
     /**
      * Returns a plain text representation of the info contained in this object.
+     *
      * @return string
      */
     public function fetch()
@@ -57,6 +62,7 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
 
     /**
      * Returns a HTML representation of the info contained in this object.
+     *
      * @return string
      */
     public function fetchHTML()
@@ -67,8 +73,11 @@ class gwCoreExceptionInfo implements gwiExceptionInfo
     /**
      * Returns a string representation of a value.
      * Used by subclasses.
+     *
      * @link http://www.php.net/manual/en/function.get-resource-type.php
-     * @param  mixed  $value
+     *
+     * @param mixed $value
+     *
      * @return string
      */
     public function getAsString($value)

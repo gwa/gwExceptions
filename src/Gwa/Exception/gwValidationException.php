@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -61,7 +62,8 @@ class gwValidationException extends gwCoreException
     }
 
     /**
-     * Add an error to this exception
+     * Add an error to this exception.
+     *
      * @param string $fieldname
      * @param string $message
      */

@@ -1,4 +1,5 @@
 <?php
+
 namespace Gwa\Exception;
 
 /**
@@ -29,6 +30,7 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
 
     /**
      * Constructor.
+     *
      * @param int    $value   the actual value that caused the exception
      * @param int    $minimum the minimum legal value
      * @param int    $maximum the maximum legal value
