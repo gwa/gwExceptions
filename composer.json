@@ -10,8 +10,8 @@
     ],
     "homepage": "https://github.com/gwa/gwExceptions",
     "require-dev": {
-        "fabpot/php-cs-fixer" : "~1.5",
-        "phpunit/phpunit"     : "~4.4.0"
+        "fabpot/php-cs-fixer" : "~1.7",
+        "phpunit/phpunit"     : "~4.4.6"
     },
     "autoload": {
         "psr-4": {
