@@ -3,8 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief A database exception
- * @ingroup exceptions
+ * A database exception
  */
 class gwDatabaseException extends gwCoreException
 {

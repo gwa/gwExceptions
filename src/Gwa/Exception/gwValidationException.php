@@ -3,26 +3,22 @@
 namespace Gwa\Exception;
 
 /**
- * @brief A validation exception.
- *
- * @ingroup exceptions
- * @ingroup validation
+ * A validation exception.
  */
 class gwValidationException extends gwCoreException
 {
     /**
      * @var array
      */
-    private $_errors;
+    private $errors = [];
 
     const REQUIRED = 'gwValidationException::required';
     const INVALID  = 'gwValidationException::invalid';
     const METHOD_DOES_NOT_EXIST = 'gwValidationException::method_does_not_exist';
 
-    public function __construct($message = 'gwValidationException::invalid', $info = null, $code = 0)
+    public function __construct($message = 'gwValidationException::invalid', $info = null, $code = 0, \Exception $previous = null)
     {
-        $this->_errors = [];
-        parent::__construct($message, $info, $code);
+        parent::__construct($message, $info, $code, $previous);
     }
 
     /**
@@ -30,7 +26,7 @@ class gwValidationException extends gwCoreException
      */
     public function getErrors()
     {
-        return $this->_errors;
+        return $this->errors;
     }
 
     /**
@@ -39,7 +35,7 @@ class gwValidationException extends gwCoreException
     public function getMessages()
     {
         $ret = [];
-        foreach ($this->_errors as $v) {
+        foreach ($this->errors as $v) {
             $ret[] = $v->message;
         }
 
@@ -52,8 +48,8 @@ class gwValidationException extends gwCoreException
     public function getMessagesForFieldname($fieldname)
     {
         $ret = [];
-        foreach ($this->_errors as $v) {
-            if ($v->field == $fieldname) {
+        foreach ($this->errors as $v) {
+            if ($v->field === $fieldname) {
                 $ret[] = $v->message;
             }
         }
@@ -72,7 +68,7 @@ class gwValidationException extends gwCoreException
         $obj = new \stdClass();
         $obj->field = $fieldname;
         $obj->message = $message;
-        $this->_errors[] = $obj;
+        $this->errors[] = $obj;
     }
 
     /**
@@ -80,6 +76,6 @@ class gwValidationException extends gwCoreException
      */
     public function hasErrors()
     {
-        return count($this->_errors)>0 ? true : false;
+        return count($this->errors) > 0;
     }
 }

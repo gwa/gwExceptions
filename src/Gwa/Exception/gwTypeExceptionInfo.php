@@ -3,25 +3,24 @@
 namespace Gwa\Exception;
 
 /**
- * @brief An exception info container for type exceptions.
- * @ingroup exceptions
+ * An exception info container for type exceptions.
  */
 class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInfo
 {
     /**
      * @var mixed
      */
-    protected $_value;
+    protected $value;
 
     /**
      * @var array
      */
-    protected $_types;
+    protected $types;
 
     /**
      * @var string
      */
-    protected $_note;
+    protected $note;
 
     /**
      * Constructor.
@@ -32,9 +31,9 @@ class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInf
      */
     public function __construct($value, $types, $note = '')
     {
-        $this->_value = $value;
-        $this->_types = is_array($types) ? $types : [$types];
-        $this->_note = $note;
+        $this->value = $value;
+        $this->types = is_array($types) ? $types : [$types];
+        $this->note = $note;
     }
 
     /**
@@ -42,11 +41,11 @@ class gwTypeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInf
      */
     public function fetch()
     {
-        $value = $this->getAsString($this->_value);
-        $values = implode(', ', $this->_types);
+        $value = $this->getAsString($this->value);
+        $values = implode(', ', $this->types);
         $output = sprintf('%s MUST BE one of the following types [%s]', $value, $values);
-        if ($this->_note) {
-            $output .= ' ('.$this->_note.')';
+        if ($this->note) {
+            $output .= ' ('.$this->note.')';
         }
 
         return $output;

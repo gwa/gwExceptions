@@ -3,8 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief The core exception class, to be extended by all other Exceptions.
- * @ingroup exceptions
+ * The core exception class, to be extended by all other Exceptions.
  */
 class gwCoreException extends \Exception
 {
@@ -119,19 +118,19 @@ class gwCoreException extends \Exception
     /**
      * Constructor.
      *
-     * @param string              $message
-     * @param gwCoreExceptionInfo $info
-     * @param int                 $code
-     * @param Exception           $previous
+     * @param string                          $message
+     * @param gwCoreExceptionInfo|string|null $info
+     * @param int                             $code
+     * @param \Exception|null                 $previous
      */
-    public function __construct($message, $info = null, $code = 0)
+    public function __construct($message, $info = null, $code = 0, \Exception $previous = null)
     {
         if (!is_a($info, 'gwCoreExceptionInfo')) {
             $info = new gwCoreExceptionInfo($info);
         }
         $info->setException($this);
         $this->info = $info;
-        parent::__construct($message, $code);
+        parent::__construct($message, $code, $previous);
     }
 
     /**
@@ -139,7 +138,7 @@ class gwCoreException extends \Exception
      */
     public function __toString()
     {
-        return __CLASS__." [$this->code]: $this->message | ".$this->info->fetch();
+        return __CLASS__ . " [$this->code]: $this->message | ".$this->info->fetch();
     }
 
     /**
@@ -149,7 +148,7 @@ class gwCoreException extends \Exception
     public function __set($key, $value)
     {
         switch ($key) {
-            case 'info' :
+            case 'info':
                 $this->info = $value;
                 break;
         }
@@ -158,14 +157,16 @@ class gwCoreException extends \Exception
     /**
      * @param string $key
      *
-     * @return gwCoreExceptionInfo
+     * @return mixed
      */
     public function __get($key)
     {
         switch ($key) {
-            case 'info' :
+            case 'info':
                 return $this->info;
         }
+
+        return null;
     }
 
     /**
