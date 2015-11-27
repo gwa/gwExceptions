@@ -3,9 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief An authentication exception class.
- * @ingroup exceptions
- * @ingroup auth
+ * An authentication exception class.
  */
 class gwAuthException extends gwCoreException
 {

@@ -3,9 +3,8 @@
 namespace Gwa\Exception;
 
 /**
- * @brief The core exception info class to be extended by all other exception info classes.
+ * The core exception info class to be extended by all other exception info classes.
  * The basic info is simply a string.
- * @ingroup exceptions
  */
 class gwCoreExceptionInfo implements gwiExceptionInfo
 {

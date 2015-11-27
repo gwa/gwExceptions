@@ -3,8 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief Interface to be implemented by all exception info classes
- * @ingroup exceptions
+ * Interface to be implemented by all exception info classes
  */
 interface gwiExceptionInfo
 {

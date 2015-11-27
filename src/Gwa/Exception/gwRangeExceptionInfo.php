@@ -3,30 +3,29 @@
 namespace Gwa\Exception;
 
 /**
- * @brief An exception info container for out of range exceptions.
- * @ingroup exceptions
+ * An exception info container for out of range exceptions.
  */
 class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInfo
 {
     /**
      * @var int
      */
-    protected $_value;
+    protected $value;
 
     /**
      * @var int
      */
-    protected $_maximum;
+    protected $maximum;
 
     /**
      * @var int
      */
-    protected $_minimum;
+    protected $minimum;
 
     /**
      * @var string
      */
-    protected $_note;
+    protected $note;
 
     /**
      * Constructor.
@@ -38,10 +37,10 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
      */
     public function __construct($value, $minimum, $maximum, $note = '')
     {
-        $this->_value = $value;
-        $this->_minimum = $minimum;
-        $this->_maximum = $maximum;
-        $this->_note = $note;
+        $this->value = $value;
+        $this->minimum = $minimum;
+        $this->maximum = $maximum;
+        $this->note = $note;
     }
 
     /**
@@ -51,12 +50,12 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
     {
         $output = sprintf(
             '%s MUST BE within the range of [%s to %s]',
-            $this->_value,
-            $this->_minimum,
-            $this->_maximum
+            $this->value,
+            $this->minimum,
+            $this->maximum
         );
-        if ($this->_note) {
-            $output .= ' ('.$this->_note.')';
+        if ($this->note) {
+            $output .= ' ('.$this->note.')';
         }
 
         return $output;
@@ -67,7 +66,7 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
      */
     public function getMaximum()
     {
-        return $this->_maximum;
+        return $this->maximum;
     }
 
     /**
@@ -75,6 +74,6 @@ class gwRangeExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionIn
      */
     public function getMinimum()
     {
-        return $this->_minimum;
+        return $this->minimum;
     }
 }

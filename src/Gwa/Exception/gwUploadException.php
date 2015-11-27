@@ -3,9 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief File upload exception
- * @ingroup exceptions
- * @ingroup data
+ * File upload exception
  */
 class gwUploadException extends gwCoreException
 {

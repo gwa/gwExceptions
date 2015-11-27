@@ -3,9 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief Provides a generic exception for filesystem exceptions.
- * @ingroup exceptions
- * @ingroup filesystem
+ * Provides a generic exception for filesystem exceptions.
  */
 class gwFilesystemException extends gwCoreException
 {

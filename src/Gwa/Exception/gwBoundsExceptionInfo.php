@@ -3,8 +3,7 @@
 namespace Gwa\Exception;
 
 /**
- * @brief An exception info container for out of bounds exceptions.
- * @ingroup exceptions
+ * An exception info container for out of bounds exceptions.
  */
 class gwBoundsExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionInfo
 {
@@ -58,12 +57,15 @@ class gwBoundsExceptionInfo extends gwCoreExceptionInfo implements gwiExceptionI
         } else {
             $strvalues[] = $this->getAsString($this->values);
         }
+
         $values = implode(', ', $strvalues);
+
         if (!$this->valuesareillegal) {
             $output = sprintf('%s MUST BE one of [%s]', $value, $values);
         } else {
             $output = sprintf('%s CANNOT BE one of [%s]', $value, $values);
         }
+
         if ($this->note) {
             $output .= ' ('.$this->note.')';
         }

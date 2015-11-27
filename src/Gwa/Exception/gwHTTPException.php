@@ -3,12 +3,9 @@
 namespace Gwa\Exception;
 
 /**
- * @brief A HTTP status exception
+ * A HTTP status exception
  *
  * Generally thrown in a controller action.
- *
- * @ingroup exceptions
- * @ingroup mvc
  */
 class gwHTTPException extends gwCoreException
 {
